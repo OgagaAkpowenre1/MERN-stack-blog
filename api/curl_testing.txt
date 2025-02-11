@@ -1,0 +1,88 @@
+curl -X POST http://localhost:5000/api/auth/register \
+     -H "Content-Type: application/json" \
+     -d '{
+           "username": "testuser",
+           "email": "testuser@example.com",
+           "password": "testpassword"
+         }'
+
+
+curl -X POST http://localhost:5000/api/auth/register \
+     -H "Content-Type: application/json" \
+     -d '{
+           "username": "testuser3",
+           "email": "testuser3@example.com",
+           "password": "testpassword3"
+         }'
+
+curl -X POST http://localhost:5000/api/auth/login \
+     -H "Content-Type: application/json" \
+     -d '{
+           "username": "testuser2",
+           "password": "testpassword2"
+         }'
+
+curl -X PUT http://localhost:5000/api/users/67abc1eb37daf29feaeef568 \
+     -H "Content-Type: application/json" \
+     -d '{
+            "userId": "67abc1eb37daf29feaeef568",
+           "username": "testuser3",
+           "password": "testpassword3"
+         }'
+
+curl -X DELETE http://localhost:5000/api/users/67abc1eb37daf29feaeef568 \
+     -H "Content-Type: application/json" \
+     -d '{
+            "userId": "67abc1eb37daf29feaeef568"
+         }'
+
+         
+
+curl -X DELETE http://localhost:5000/api/users/67abc0a717d5919c1a56ed3c \
+     -H "Content-Type: application/json" \
+     -d '{
+            "userId": "67abc0a717d5919c1a56ed3c"
+         }'
+
+curl -X GET http://localhost:5000/api/users/67abc9eda986efaa28602b2a \
+     -H "Content-Type: application/json" \
+     -d '{
+            
+         }'
+
+curl -X POST http://localhost:5000/api/posts \
+     -H "Content-Type: application/json" \
+     -d '{
+            "username":"testuser",
+            "title":"Test Post 2",
+            "desc":"A test post"
+         }'
+
+curl -X PUT http://localhost:5000/api/posts/67abcd3b4d983d853ce2e4b4 \
+     -H "Content-Type: application/json" \
+     -d '{
+            "username":"testuser",
+            "title":"Test Post 3",
+            "desc":"A test post 3"
+         }'
+
+curl -X DELETE http://localhost:5000/api/posts/67abcd3b4d983d853ce2e4b4 \
+     -H "Content-Type: application/json" \
+     -d '{
+            "username":"testuser"
+         }'
+
+curl -X GET http://localhost:5000/api/posts?cat=Music \
+     -H "Content-Type: application/json" \
+     -d '{
+            
+         }'
+
+curl -X POST http://localhost:5000/api/posts \
+     -H "Content-Type: application/json" \
+     -d '{
+            "username":"testuse2",
+            "title":"Test Post 7",
+            "desc":"A test post",
+            "categories": ["Music", "Life"]
+         }'
