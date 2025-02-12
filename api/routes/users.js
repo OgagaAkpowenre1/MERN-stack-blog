@@ -18,7 +18,7 @@ router.put("/:id", async (req, res) => {
         },
         { new: true }
       );
-      res.status(200).json({ "User updated": updatedUser });
+      res.status(200).json(updatedUser);
     } catch (error) {
       console.log(error);
       res.status(500).json(error);
@@ -54,7 +54,7 @@ router.get("/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     const {password, ...others} = user._doc
-    res.status(200).json({ "User found": others });
+    res.status(200).json(others);
   } catch (error) {
     console.log(error);
     res.status(500).json(error);

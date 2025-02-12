@@ -86,3 +86,18 @@ curl -X POST http://localhost:5000/api/posts \
             "desc":"A test post",
             "categories": ["Music", "Life"]
          }'
+
+curl -X POST http://localhost:5000/api/categories \
+     -H "Content-Type: application/json" \
+     -d '{
+            "name":"Music"
+         }'
+
+curl -X GET http://localhost:5000/api/categories \
+     -H "Content-Type: application/json" \
+     -d '{
+            
+         }'
+
+curl -X POST http://localhost:5000/api/upload \
+     -F "file=@/workspace/MERN-stack-blog/api/008 (2).png"

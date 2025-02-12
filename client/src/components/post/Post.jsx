@@ -1,47 +1,27 @@
+import { Link } from "react-router-dom";
 import "./post.css";
 
-export default function Post() {
+export default function Post({post}) {
   return (
     <div className="post">
-      <img
+      {post.photo && <img
         className="postImg"
-        src="https://images.pexels.com/photos/1447092/pexels-photo-1447092.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        src={post.photo}
         alt=""
-      />
+      />}
       <div className="postInfo">
         <div className="postCats">
-          <span className="postCat">Music</span>
-          <span className="postCat">Life</span>
+          {post.categories.map((category) => (
+            <span className="postCat">{category}</span>
+          ))}
         </div>
-        <span className="postTitle">Lorem ipsum dolor sit amet.</span>
+        <Link to={`/post/${post._id}`} className="link"><span className="postTitle">{post.title}</span></Link>
+        
         <hr />
-        <span className="postDate">1hr ago</span>
+        <span className="postDate">{new Date(post.createdAt).toDateString()}</span>
       </div>
       <p className="postDesc">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis porro
-        consectetur dolorem eius? Maiores quam eligendi saepe harum nemo, atque
-        animi illo doloremque libero aliquam? Lorem ipsum dolor sit amet
-        consectetur adipisicing elit. Fugit eius modi quae iste! Eaque ipsum
-        consectetur ipsam dicta distinctio eum officia quisquam. Minus sunt
-        obcaecati facere dignissimos atque nulla laboriosam pariatur sed
-        deserunt adipisci voluptate itaque, aspernatur perspiciatis eveniet
-        voluptates corporis perferendis dolorum, vero praesentium illo a
-        laborum. Assumenda non temporibus, est beatae fugit labore placeat odit
-        ut autem.
-        Fugit eius modi quae iste! Eaque ipsum
-        consectetur ipsam dicta distinctio eum officia quisquam. Minus sunt
-        obcaecati facere dignissimos atque nulla laboriosam pariatur sed
-        deserunt adipisci voluptate itaque, aspernatur perspiciatis eveniet
-        voluptates corporis perferendis dolorum, vero praesentium illo a
-        laborum. Assumenda non temporibus, est beatae fugit labore placeat odit
-        ut autem.
-        Fugit eius modi quae iste! Eaque ipsum
-        consectetur ipsam dicta distinctio eum officia quisquam. Minus sunt
-        obcaecati facere dignissimos atque nulla laboriosam pariatur sed
-        deserunt adipisci voluptate itaque, aspernatur perspiciatis eveniet
-        voluptates corporis perferendis dolorum, vero praesentium illo a
-        laborum. Assumenda non temporibus, est beatae fugit labore placeat odit
-        ut autem.
+       {post.desc}
       </p>
     </div>
   );
