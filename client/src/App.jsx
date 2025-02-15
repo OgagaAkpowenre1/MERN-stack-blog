@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import TopBar from "./components/topbar/TopBar";
@@ -8,9 +8,11 @@ import Write from "./pages/write/Write";
 import Settings from "./pages/settings/Settings";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
+import { Context } from "./context/Context";
 
 function App() {
-  const user = false
+  const {user} = useContext(Context)
+  console.log(user)
   return (
     <>
       <Router>

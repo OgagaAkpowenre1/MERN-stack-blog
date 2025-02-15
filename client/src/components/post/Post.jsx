@@ -2,11 +2,13 @@ import { Link } from "react-router-dom";
 import "./post.css";
 
 export default function Post({post}) {
+  const PF = "https://5000-ogagaakpowe-mernstackbl-96nf2ga4bi6.ws-eu117.gitpod.io/images/"
+  console.log(post.photo)
   return (
     <div className="post">
       {post.photo && <img
         className="postImg"
-        src={post.photo}
+        src={PF + post.photo}
         alt=""
       />}
       <div className="postInfo">

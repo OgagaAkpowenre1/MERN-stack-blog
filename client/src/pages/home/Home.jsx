@@ -9,7 +9,6 @@ import axios from "axios"
 export default function Home () {
   const [posts, setPosts] = useState([])
   const {search} = useLocation()
-  console.log(search)
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await axios.get("/api/posts" + search)
